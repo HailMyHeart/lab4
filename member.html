@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{{communityName}}社团个人中心</title>
+
+<link rel="stylesheet" href="css/index.css" type="text/css" media="screen">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/tendina.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script src="http://apps.bdimg.com/libs/layer/2.0/layer.js"></script>
+<script type="text/javascript">
+        $(function(){
+        $(".menu_second").click(function(){
+            $("#second_li").text(($(this).text()));
+            $("#first_li").text(($(this).parent().parent().prev().text()));
+        });
+        $("#personal_profile").click(function(){
+            $("#second_li").text("个人中心");
+            $("#first_li").text("用户");
+        })
+    });
+</script>
+
+</head>
+<body>
+    <!--顶部-->
+    <div class="layout_top_header">
+            <div style="float: left"><span style="font-size: 16px;line-height: 45px;padding-left: 20px;color: #8d8d8d">{{communityName}}社团个人中心</span></div>
+            <div id="ad_setting" class="ad_setting">
+                <a class="ad_setting_a" href="javascript:;">
+                    <i class="icon-user glyph-icon" style="font-size: 20px"></i>
+                    <span>{{userName}}</span>
+                    <i class="icon-chevron-down glyph-icon"></i>
+                </a>
+                <ul class="dropdown-menu-uu" style="display: none" id="ad_setting_ul">
+                    <li class="ad_setting_ul_li"> <a id="personal_profile" href="profile.html"  target="menuFrame"><i class="icon-user glyph-icon"></i> 个人中心 </a> </li>
+                    <li class="ad_setting_ul_li"> <a href="{%url logOut%}"><i class="icon-signout glyph-icon"></i> <span class="font-bold">退出</span> </a> </li>
+                </ul>
+            </div>
+    </div>
+    <!--顶部结束-->
+    <!--菜单-->
+    <div class="layout_left_menu">
+        <ul class="tendina" id="menu">
+            <li class="childUlLi">
+                <a href="#"> <i class="glyph-icon  icon-location-arrow"></i>个人活动管理</a>
+                <ul style="display: none;">
+                    <li><a class="menu_second" href="timeline.html" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>任务管理</a></li>           
+                </ul>
+            <li class="childUlLi">
+                <a href="#"> <i class="glyph-icon  icon-location-arrow"></i>通讯录</a>
+                <ul style="display: none;">
+                    <li><a class="menu_second" href="addressList.html" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>通讯录</a></li>
+        
+                </ul>
+            </li>
+            </li>
+        </ul>
+    </div>
+    <!--菜单-->
+    <div id="layout_right_content" class="layout_right_content"  style="overflow: hidden;">
+        <ul class="breadcrumb">
+
+            <li id="first_li">
+                 用户
+            </li>
+            <li class="active" id="second_li">
+                个人中心
+            </li>
+        </ul>
+        <div class="mian_content">
+            <div id="page_content">
+                <iframe id="menuFrame" name="menuFrame" src="profile.html" style="overflow:visible;" scrolling="yes" frameborder="no" height="100%" width="100%"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="layout_footer">
+        <p>Copyright © 2015 - Hunters all rights.</p>
+    </div>
+    <script type="text/javascript">
+        var a = {{userValidate}};
+        if (a == 2)
+        {
+            layer.ready(function(){layer.open({
+                                        type: 1,
+                                        skin: 'layui-layer-demo', 
+                                        closeBtn: false, 
+                                        shift: 6,
+                                        shadeClose: false, 
+                                        title:'Tip:已登出',
+                                        content: '请返回社团主页重新登陆',
+                                        scrollbar:false,
+                                    });})
+        }
+
+    </script>
+</body></html>
