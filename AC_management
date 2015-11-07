@@ -46,8 +46,7 @@
 									<br>
 									<div class="ystep{{acti.id}}"></div>
 									 <script>
-									    //根据jQuery选择器找到需要加载ystep的容器
-									    //loadStep 方法可以初始化ystep
+					
 
 									    
 									    $(".ystep{{acti.id}}").loadStep({
