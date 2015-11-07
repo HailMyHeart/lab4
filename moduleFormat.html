@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+	<title>模块化功能管理</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="js/lib/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/screen.css">
+	<link rel="stylesheet" type="text/css" href="css/skins/flat/pink.css">
+	<script src="js/icheck.js"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+	<link href="css/templatemo_style.css" rel="stylesheet" type="text/css">	
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	  $("input").iCheck({
+	    checkboxClass: 'icheckbox_flat',
+	    radioClass: 'iradio_flat'
+	  });
+	  $("input").iCheck({
+	    checkboxClass: 'icheckbox_flat-pink',
+	    radioClass: 'iradio_flat-pink'
+	  });	  
+
+	});		
+
+
+	</script>
+
+</head>
+<body style="background-color: #ffffff">
+
+    <div class="div_from_aoto" style="width: 900px;">
+		<div class="col-md-12">			
+			<form class="form-horizontal templatemo-create-account templatemo-container" role="form" action="{%url moduleFormat%}" method="post" id="module_format">
+
+
+			<div class="form-group" style="margin-left: 1px">            <button  class="btn btn-success">保存</button></div>
+			</br>
+
+
+			<div class="panel-group" id="panel-248445">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						 <a class="panel-title" data-toggle="collapse" data-parent="#panel-248445" href="#panel-element-642242">成员管理</a>
+					</div>
+					<div id="panel-element-642242" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<label><input type="checkbox" id="member_check" name="second_choice"></input> 成员审核</label>
+							<label><input type="checkbox" id="member_info" name="second_choice"></input> 成员信息</label>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						 <a class="panel-title" data-toggle="collapse" data-parent="#panel-248445" href="#panel-element-424272">物资管理</a>
+					</div>
+					<div id="panel-element-424272" class="panel-collapse collapse">
+						<div class="panel-body">
+							<label><input type="checkbox" id="material_management" name="second_choice" ></input> 物资管理</label>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						 <a class="panel-title" data-toggle="collapse" data-parent="#panel-248445" href="#panel-element-42427">活动管理</a>
+					</div>
+					<div id="panel-element-42427" class="panel-collapse collapse">
+						<div class="panel-body">
+							<label><input type="checkbox" id="act_management" name="second_choice" ></input> 活动管理</label>
+							<label><input type="checkbox" id="new_act" name="second_choice" ></input> 发起新活动</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		      </form>		      
+		</div>
+	</div>
+
+</body>
+</html>
