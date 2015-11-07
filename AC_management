@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>活动管理</title>
+    <link rel="stylesheet" href="css/add.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/ystep.css">
+    <script src="js/ystep.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	
+	<script type="text/javascript">
+		$("button[name^='delete_']").click(function(){
+			$.post('{%url ajax_deleteActi%}', {'acti_id':$(this).attr().split('_')[1],});
+		});
+		$("button[name^='update_']").click(function(){
+			var curUpdate = "#update_detail_"+$(this).attr("id").split('_')[1];
+			$("div[id^='update_detail_']").attr("hidden","hidden");
+			$(curUpdate).removeAttr("hidden");
+		});
+	</script>
+</head>
+
+<body style="background-color: #ffffff">
+
+    <div class="div_from_aoto" style="width: 900px;">
+
+		<div class="col-md-12 column">
+
+
+
+
+		<div class="panel-group" id="panel-969293">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								 <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-969293" href="#panel-element-346688">报名截止活动</a>
+							</div>
+							<div id="panel-element-346688" class="panel-collapse collapse in">
+								<div class="panel-body">
+									{%for acti in act_ed_list%}
+									<div><label>{{acti.title}}</label></div>
+									<br>
+									<div class="ystep{{acti.id}}"></div>
+									 <script>
+									    //根据jQuery选择器找到需要加载ystep的容器
+									    //loadStep 方法可以初始化ystep
+
+									    
+									    $(".ystep{{acti.id}}").loadStep({
+									      size: "large",
+									      color: "blue",
+									      steps: [
+									      {%for step in acti.steps%}
+									      {
+									        title: "{{step.title}}",
+									        content: "{{step.content}}",
+									        pricipal:"{{step.pricipal}}"
+									      },
+									      {%endfor%}]
+									    });
+									    
+									    $(".ystep{{acti.id}}").setStep({{acti.location}});
+									</script>
+									<br>
+									{%endfor%}									
+
+
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								 <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-969293" href="#panel-element-901436">报名中活动</a>
+							</div>
+							<div id="panel-element-901436" class="panel-collapse collapse">
+								<div class="panel-body">
+								<form>
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>
+													活动标题
+												</th>
+												<th>
+													发起时间
+												</th>
+												<th>
+													报名截止时间
+												</th>
+												<th>
+													操作
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+										{%for acti in acti_ing_list%}
+											<tr>
+												<td>
+													{{acti.title}}
+												</td>
+												<td>
+													{{acti.public_date}}
+												</td>
+												<td>
+													{{acti.app_end_date}}
+												</td>
+												<td>
+													<button type="button" id="delete_{{acti.id}}" class="btn btn-default btn-danger">删除</button>
+													<button type="button" id="update_{{acti.id}}" class="btn btn-default">查看参与人列表</button>
+												</td>
+											</tr>
+										{%endfor%}
+										</tbody>
+									</table> 
+									</form>
+									
+									<div id="update_content">
+									{%for acti in acti_ing_list%}
+									<div id="update_detail_{{acti.id}}" hidden="hidden">
+
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>
+													姓名
+												</th>
+												<th>
+													学院
+												</th>
+												<th>
+													年级
+												</th>
+												<th>
+													学号
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+										{%for appli in acti.applications%}
+											<tr>
+												<td>
+													{{appli.name}}
+												</td>
+												<td>
+													{{appli.institution}
+												</td>
+												<td>
+													{{appli.grade}}
+												</td>
+												<td>
+													{{appli.student_id}}
+												</td>
+											</tr>
+										{%endfor%}
+										</tbody>
+									</table> 											
+				
+									</div>
+									{%endfor%}	
+									</div>
+
+								</div>
+							</div>
+						</div>
+		</div>
+
+
+
+
+
+
+
+
+		</div>
+
+    </div>
+</body>
+
+</html>
+
