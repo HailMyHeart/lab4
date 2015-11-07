@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Iridium</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<link href="css/lrtk.css" media="screen" rel="stylesheet" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.lighterbox.0.0.2.min.js"></script>
+		<script>
+			$(function(){ // document ready
+				$(".lighterbox").lighterbox({ overlayColor : "white" });
+			});
+		</script>
+
+
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+		<div id="header">
+			<div class="container"> 
+				
+				<!-- Logo -->
+				<div id="logo">
+					<h1 style="font-size: 1em;"><a href="#">Students' Association</a></h1>
+					<span>This is a banner.</span>
+				</div>
+				
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="Homepage.html">Homepage</a></li>
+						<li><a href="ProfileContent.html">profile</a></li>
+						<li class="active"><a href="Photos.html">Photos</a></li>
+						<li><a href="Activities.html">Activities</a></li>
+						<li><a href="Bulletin.html">Bulletin</a></li>
+						<li><a href="News.html">News</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<!-- Main -->
+		<div id="main" style="text-align:center;">
+			<div class="container">
+				<div class="row"> 
+
+					<!-- Content -->
+					<article class="clearfix" style="float: none;">
+					{%for i in photos_list%}
+					    <section>
+					        <a href="{{i.img1}}" class="lighterbox">
+					            <img src="{{i.img2}}" />
+					            <h2 class="lighterbox-title">{{i.title}}</h2>
+					            <span class="lighterbox-desc">{{i.brief}}</span>
+					        </a>
+					    </section>
+					{{%endfor%}}
+					</article>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+				Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+			</div>
+		</div>
+		
+
+</body>
+</html>
