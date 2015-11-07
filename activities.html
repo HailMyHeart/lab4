@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Activities</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="http://apps.bdimg.com/libs/layer/2.0/layer.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<script type="text/javascript">
+			jQuery(function(){
+				$(".ti").hover(function(){
+					$(this).stop().animate({marginLeft:"12px"},400);
+				},function(){
+					$(this).stop().animate({marginLeft:"0px"},400);
+				});
+
+			});
+
+		</script>
+
+
+
+
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	</head>
+	<body class="no-sidebar">
+
+		<!-- Header -->
+		<div id="header">
+			<div class="container"> 
+				
+				<!-- Logo -->
+				<div id="logo">
+					<h1><a href="#">Students' Association</a></h1>
+					<span>This is a banner.</span>
+				</div>
+				
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="Homepage.html">Homepage</a></li>
+						<li><a href="ProfileContent.html">profile</a></li>
+						<li><a href="Photos.html">Photos</a></li>
+						<li class="active"><a href="Activities.html">Activities</a></li>
+						<li><a href="Bulletin.html">Bulletin</a></li>
+						<li><a href="News.html">News</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="container">
+
+
+				<div class="row"> 
+					
+					<!-- Content -->
+					
+
+
+					<div id="content" class="12u skel-cell-important" >
+						<section>
+
+					<div class="outer" style="font-family:'Microsoft YaHei';width:600px;height:300px;overflow-x:hidden;overflow-y:auto;margin: auto;">
+					<div style="width:570px;">
+
+
+						{%for i in activities_list%}
+							<header>
+								<span id="activity{{forloop.counter}}"  class="ti">这里是标题呦~这里是标题呦~这里是标题呦~这里是标题呦~这里是标题呦~这里是标题呦~这里是标题呦~这里是标题呦~这里是标题呦~这里是标题呦~这里是标题呦~这里是标题呦~这里是标题呦~</span>
+							<script type="text/javascript">
+		    				$("#activity{{forloop.counter}}").bind("click", function(){layer.open({
+		    				type: 1,
+		    				title :'{{i.title}}',
+		    				area: ['500px', '600px'],
+		    				shade: [0.8, '#393D49'],
+		    				skin: 'layui-layer-rim',
+		    				closeBtn: 1, //不显示关闭按钮
+		    				shift: 5,
+		    				shadeClose: true, //开启遮罩关闭
+		    				scrollbar: false,
+		    				content: '{{i.content}}',
+							});})
+						</script>
+						<span class="byline" style="float: right; "> {{i.date}}</span>
+						<span class="byline iWantApp" style="float: right; cursor: pointer;"> 我要报名</span>
+							<script type="text/javascript">
+							
+		    				$(".iWantApp").bind("click", function(){layer.open({
+		    				type: 1,
+		    				title :'请填写您的报名信息',
+		    				area: ['250px', '300px'],
+		    				shade: [0.8, '#393D49'],
+		    				skin: 'layui-layer-rim',
+		    				closeBtn: 1, //不显示关闭按钮
+		    				shift: 2,
+		    				shadeClose: true, //开启遮罩关闭
+		    				scrollbar: false,
+		    				content: '<form action="{%url appForm%}"><div style="margin-top:5px;"><label for="appliname">姓名</label><input type="text" id="appliname" name="appliname" /></div><div style="margin-top:10px;"><label for="appliinstitution">学院</label><input type="text"  id="appliinstitution" name="appliinstitution" /></div><div style="margin-top:10px;"><label for="appligrade">年级</label><input type="text" id="appligrade" name="appligrade"/></div><div style="margin-top:10px;"><label for="appliid">学号</label><input type="text" id="appliid" name="appliid" /></div> <button type="submit" style="float:right; margin-top:20px; margin-right:20px">Submit</button></form>',
+							});})
+						</script>
+						{%endfor%}
+					</div>		
+
+
+
+																												
+						</section>
+					</div>					
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+				Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+			</div>
+		</div>
+		
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>
