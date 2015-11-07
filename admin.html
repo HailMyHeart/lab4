@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{{communityName}}社团管理后台</title>
+
+<link rel="stylesheet" href="css/index.css" type="text/css" media="screen">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/tendina.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script src="http://apps.bdimg.com/libs/layer/2.0/layer.js"></script>
+<script type="text/javascript">
+        $(function(){
+        $(".menu_second").click(function(){
+            $("#second_li").text(($(this).text()));
+            $("#first_li").text(($(this).parent().parent().prev().text()));
+        });
+    });
+</script>
+</head>
+<body>
+    <!--顶部-->
+    <div class="layout_top_header">
+            <div style="float: left"><span style="font-size: 16px;line-height: 45px;padding-left: 20px;color: #8d8d8d">{{communityName}}社团管理后台</span></div>
+            <div id="ad_setting" class="ad_setting">
+                <a class="ad_setting_a" href="javascript:;">
+                    <i class="icon-user glyph-icon" style="font-size: 20px"></i>
+                    <span>管理员</span>
+                    <i class="icon-chevron-down glyph-icon"></i>
+                </a>
+                <ul class="dropdown-menu-uu" style="display: none" id="ad_setting_ul">
+                    <li class="ad_setting_ul_li"> <a href="update_password.html" target="menuFrame"><i class="icon-user glyph-icon"></i> 更改密码 </a> </li>
+                    <li class="ad_setting_ul_li"> <a href="{%url logOut%}" target="menuFrame"><i class="icon-signout glyph-icon"></i> <span class="font-bold" id="signout-back">退出</span> </a> </li>              
+                </ul>
+            </div>
+    </div>
+    <!--顶部结束-->
+    <!--菜单-->
+    <div class="layout_left_menu">
+        <ul class="tendina" id="menu">
+            <li class="childUlLi">
+               <a href="#" target="menuFrame"><i class="glyph-icon icon-home"></i>首页</a>
+                <ul style="display: none;">
+                    <li><a href="moduleFormat.html" target="menuFrame" class="menu_second"><i class="glyph-icon icon-chevron-right"></i>模块化功能管理</a></li>
+                </ul>
+            </li>
+            <li class="childUlLi">
+                <a href="#" target="menuFrame"> <i class="glyph-icon icon-reorder"></i>成员管理</a>
+                <ul style="display: none;">
+                    <li><a href="memberCheck.html" target="menuFrame"  class="menu_second"><i class="glyph-icon icon-chevron-right"></i>成员审核</a></li>
+                    <li><a href="memberInfo.html" target="menuFrame"  class="menu_second"><i class="glyph-icon icon-chevron-right"></i>成员信息管理</a></li>
+                </ul>
+            </li>
+            <li class="childUlLi">
+                <a href="#" target="menuFrame"> <i class="glyph-icon icon-reorder"></i>物资管理</a>
+                <ul style="display: none;">
+                    <li><a href="materialManage.html" target="menuFrame"  class="menu_second"><i class="glyph-icon icon-chevron-right"></i>物资管理</a></li>
+                </ul>
+            </li>
+            <li class="childUlLi">
+                <a href="#" target="menuFrame"> <i class="glyph-icon icon-reorder"></i>活动管理</a>
+                <ul style="display: none;">
+                    <li><a href="AC_management.html" target="menuFrame"  class="menu_second"><i class="glyph-icon icon-chevron-right"></i>活动管理</a></li>
+                    <li><a href="newActivity.htm" target="menuFrame"  class="menu_second"><i class="glyph-icon icon-chevron-right"></i>发起新活动</a></li>
+                </ul>
+            </li>
+            <li class="childUlLi">
+                <a href="#"> <i class="glyph-icon  icon-location-arrow"></i>主页功能管理</a>
+                <ul style="display: none;">
+                    <li><a href="title.htm" target="menuFrame" class="menu_second"><i class="glyph-icon icon-chevron-right"></i>主页标题及标语</a></li>
+                    <li><a href="introduction.htm" target="menuFrame"  class="menu_second"><i class="glyph-icon icon-chevron-right"></i>社团简介</a></li>
+                    <li><a href="nav.htm" target="menuFrame"  class="menu_second"><i class="glyph-icon icon-chevron-right"></i>导航栏</a></li>
+                    <li><a href="Photo_management.html" target="menuFrame"  class="menu_second"><i class="glyph-icon icon-chevron-right"></i>相册管理</a></li>
+                    <li><a href="bulletin_management.html" target="menuFrame"  class="menu_second"><i class="glyph-icon icon-chevron-right"></i>公告管理</a></li>
+                     <li><a href="news_management.html" target="menuFrame"  class="menu_second"><i class="glyph-icon icon-chevron-right"></i>新闻管理</a></li>                   
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--菜单-->
+
+    <div id="layout_right_content" class="layout_right_content" style="overflow: hidden;">
+        <ul class="breadcrumb">
+
+            <li id="first_li">
+                 首页
+            </li>
+            <li class="active" id="second_li">
+                模块化功能管理
+            </li>
+        </ul>
+        <div class="mian_content">
+
+            <div id="page_content">
+                <iframe id="menuFrame" name="menuFrame" src="moduleFormat.html" style="overflow:visible;" scrolling="yes" frameborder="no" height="100%" width="100%"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="layout_footer">
+        <p>Copyright © 2015 - Hunters all rights.</p>
+    </div>
+<script type="text/javascript">
+        var a = {{validate_token}};
+        if (a == 2)
+        {
+            layer.ready(function(){layer.open({
+                                        type: 1,
+                                        skin: 'layui-layer-demo', 
+                                        closeBtn: false, 
+                                        shift: 6,
+                                        shadeClose: false, 
+                                        title:'Tip:您没有权限进入此页面',
+                                        content: '如果您是管理员，请返回社团主页重新登陆',
+                                        scrollbar:false,
+                                    });})
+        }
+
+</script>
+</body></html>
